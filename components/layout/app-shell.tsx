@@ -20,20 +20,12 @@ export function AppShell({ children, email }: AppShellProps) {
             className="flex items-center gap-2.5"
           >
             <Image
-              src="/icon.svg"
-              alt=""
-              width={28}
-              height={28}
-              priority
-              className="size-7 shrink-0"
-            />
-            <Image
-              src="/icons/prism-wordmark.svg"
+              src="/icons/prism-logo.svg"
               alt="Prism"
-              width={84}
-              height={24}
+              width={144}
+              height={48}
               priority
-              className="h-6 w-auto"
+              className="h-8 w-auto"
             />
           </Link>
 
