@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import { LogoutButton } from "@/components/auth/logout-button"
@@ -15,9 +16,25 @@ export function AppShell({ children, email }: AppShellProps) {
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-4 px-4 py-3 sm:px-6">
           <Link
             href="/protected"
-            className="font-heading text-lg font-semibold tracking-tight"
+            aria-label="Prism dashboard"
+            className="flex items-center gap-2.5"
           >
-            Prism
+            <Image
+              src="/icon.svg"
+              alt=""
+              width={28}
+              height={28}
+              priority
+              className="size-7 shrink-0"
+            />
+            <Image
+              src="/icons/prism-wordmark.svg"
+              alt="Prism"
+              width={84}
+              height={24}
+              priority
+              className="h-6 w-auto"
+            />
           </Link>
 
           <NavLinks />
