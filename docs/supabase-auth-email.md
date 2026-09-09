@@ -20,6 +20,33 @@ Supabase's built-in SMTP service is suitable only for development and testing. I
 
 SMTP credentials belong only in Supabase. Do not add them to `.env.local`, Next.js environment variables, or source control.
 
+### Current project status
+
+The project currently uses a Gmail SMTP account, which is sufficient for
+development and private testing. It is not the final verified-domain setup for
+a public production launch because Gmail does not verify a project-owned
+authentication domain through this configuration.
+
+To complete production email delivery, choose a transactional provider and a
+domain you control, then complete the provider's domain verification before
+replacing the Gmail SMTP settings in Supabase. Do not change the working Gmail
+configuration until the replacement provider has passed a test signup and a
+password-reset test.
+
+### Browser configuration required
+
+1. In the SMTP provider, add a dedicated sending subdomain such as
+   `auth.example.com`.
+2. Add every SPF, DKIM, and DMARC record supplied by the provider to the
+   domain's DNS host.
+3. Wait for the provider to report the domain as verified.
+4. In Supabase, open Authentication → Emails → SMTP Settings and replace the
+   Gmail host, username, password, and sender with the provider's values.
+5. Use a sender such as `no-reply@auth.example.com` and disable link tracking
+   in the provider.
+6. Test signup confirmation and password recovery using an address outside the
+   Supabase organization team.
+
 ## Templates for the current SSR flow
 
 The confirmation route in this project expects a `token_hash` and `type` query parameter.
