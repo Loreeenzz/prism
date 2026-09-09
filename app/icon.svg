@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#111318" />
+  <path d="M32 10 52 22v20L32 54 12 42V22L32 10Z" fill="#f4f4f5" />
+  <path d="m32 10 20 12-20 12-20-12L32 10Z" fill="#a78bfa" />
+  <path d="m32 34 20-12v20L32 54V34Z" fill="#6366f1" />
+  <path d="m32 34-20-12v20l20 12V34Z" fill="#818cf8" />
+</svg>

@@ -1,0 +1,2 @@
+-- Development seed data belongs here once the application schema exists.
+-- Keep production data and secrets out of this file.
