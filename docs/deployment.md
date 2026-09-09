@@ -46,3 +46,23 @@ reporting in Preview before promoting to Production.
 The CI workflow remains the first gate for every push and pull request. Vercel
 then performs the deployment build with the environment variables configured
 for that deployment target.
+
+## Production database migrations
+
+The `Supabase Migrations` workflow applies committed files under
+`supabase/migrations` to the production project after they reach `main`. It
+also supports a manual run from GitHub Actions and previews pending changes
+before applying them. The workflow intentionally does not start the local
+Supabase stack or add Docker to the project.
+
+Add these encrypted secrets to the repository's GitHub Actions `production`
+environment before the workflow can run:
+
+- `SUPABASE_ACCESS_TOKEN` — a Supabase personal access token.
+- `SUPABASE_PROJECT_ID` — the production project reference from the Supabase
+  dashboard URL.
+- `SUPABASE_DB_PASSWORD` — the production database password.
+
+Never place these values in the repository, `.env.example`, workflow source,
+or browser-exposed `NEXT_PUBLIC_*` variables. Review migration SQL before
+merging to `main`; the workflow applies it to the production database.
